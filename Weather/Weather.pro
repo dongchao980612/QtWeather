@@ -20,7 +20,10 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
-    mainwindow.h
+    HEADER.h \
+    mainwindow.h \
+    weatherTool.h \
+    weatherdata.h
 
 FORMS += \
     mainwindow.ui
@@ -29,3 +32,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    main.qrc
