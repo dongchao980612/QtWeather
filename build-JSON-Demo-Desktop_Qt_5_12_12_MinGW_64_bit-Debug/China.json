@@ -1,0 +1,18 @@
+{
+    "info": {
+        "asian": true,
+        "capital": "beijing",
+        "founded": 1949
+    },
+    "name": "China",
+    "provinces": [
+        {
+            "capital": "beijing",
+            "name": "shandong"
+        },
+        {
+            "capital": "hangzhou",
+            "name": "zhejiang"
+        }
+    ]
+}
