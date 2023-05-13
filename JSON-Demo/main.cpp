@@ -128,7 +128,7 @@ void readjson()
 int main(int argc, char* argv[])
 {
     QCoreApplication a(argc, argv);
-    // writejson();
+    writejson();
     readjson();
     return a.exec();
 }
