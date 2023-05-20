@@ -1,10 +1,12 @@
 ﻿#include <QCoreApplication>
+
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonDocument>
 
 #include <QFile>
 #include <QDebug>
+
 void writejson()
 {
     //新建Json对象
@@ -40,6 +42,8 @@ void writejson()
 
     //转换成字符串
     QJsonDocument doc(rootObj);
+    // QJsonDocument({"info":{"asian":true,"capital":"beijing","founded":1949},"name":"China","provinces":[{"capital":"beijing","name":"shandong"},{"capital":"hangzhou","name":"zhejiang"}]})
+
     QByteArray json = doc.toJson();
 
     // 打印输出
@@ -51,14 +55,14 @@ void writejson()
     file.open(QFile::WriteOnly);
     file.write(json);
     file.close();
-
-
 }
+
 void readjson()
 {
     QFile file("China.json");
     file.open(QFile::ReadOnly);
     QByteArray json = file.readAll();// 字节数组
+    file.close();//
 
     QJsonDocument doc = QJsonDocument::fromJson(json);// 转化为QJsonDocument
 //    QJsonDocument doc;
@@ -77,7 +81,6 @@ void readjson()
     for (int i = 0; i < keys.length(); i++)
     {
         //获取 k v
-
         QString key = keys[i];
         QJsonValue value = obj.value(key);
         // qDebug() << key << value;
@@ -89,7 +92,7 @@ void readjson()
         else if(value.isString())
         {
 
-            qDebug() << key << ":" << value.toString() << endl; // "name" : "China"
+            qDebug() << key << ":" << value.toString() << endl;
         }
         else if (value.isDouble())
         {
@@ -128,7 +131,7 @@ void readjson()
 int main(int argc, char* argv[])
 {
     QCoreApplication a(argc, argv);
-    writejson();
+    // writejson();
     readjson();
     return a.exec();
 }
